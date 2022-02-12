@@ -13,6 +13,5 @@ public class App
     	ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
     	Samsung obj = factory.getBean(Samsung.class);
     	obj.config();
-    	
     }
 }
