@@ -4,10 +4,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        // Car car = new Car();
-        // car.drive();
+        // Vehicle obj = new Car();
+    	// obj.drive();
     	
-    	Bike obj = new Bike();
-    	obj.drive();
+    	Vehicle obj = new Bike();
+        obj.drive();
     }
 }
