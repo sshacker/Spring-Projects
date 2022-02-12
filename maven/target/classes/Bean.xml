@@ -9,9 +9,13 @@
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="com.sshacker.maven.demo"></context:component-scan >
-	
+	<!--	
 	<bean id="tyre" class="com.sshacker.maven.demo.Tyre">
 		<constructor-arg name="brand" value="CEAT"></constructor-arg>
 	</bean>
+	-->
+	<bean id="tyre" class="com.sshacker.maven.demo.Tyre">
+	</bean>
+	
 		
 </beans>
