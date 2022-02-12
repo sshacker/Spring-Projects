@@ -17,5 +17,4 @@
 	<bean id="tyre" class="com.sshacker.maven.demo.Tyre">
 	</bean>
 	
-		
 </beans>
