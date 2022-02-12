@@ -8,7 +8,7 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");
-        Vehicle obj = (Vehicle)context.getBean("bike");
-        obj.drive();
+        Tyre obj = (Tyre)context.getBean("tyre");
+        System.out.println(obj);
     }
 }

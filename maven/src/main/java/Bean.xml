@@ -9,5 +9,9 @@
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="com.sshacker.maven.demo"></context:component-scan >
+	
+	<bean id="tyre" class="com.sshacker.maven.demo.Tyre">
+		<property name="brand" value="MRF"></property>
+	</bean>
 
 </beans>
