@@ -1,13 +1,13 @@
 package com.sshacker.maven.demo;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "First Maven Project Hello World!" );
+        // Car car = new Car();
+        // car.drive();
+    	
+    	Bike obj = new Bike();
+    	obj.drive();
     }
 }
