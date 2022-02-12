@@ -1,5 +1,8 @@
 package com.sshacker.maven.demo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Tyre {
 	private String brand;
 
