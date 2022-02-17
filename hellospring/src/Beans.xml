@@ -6,7 +6,8 @@
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- example of singleton scope -->
-   <bean id = "helloworld" class = "com.sshacker.tutorialpoint.HelloWorld" scope="prototype">
+   <bean id = "helloworld" class = "com.sshacker.tutorialpoint.HelloWorld" init-method="init" destroy-method = "destroy">
+   	<property name="message" value="Hello World !!"></property>
    </bean>
 
 </beans>
