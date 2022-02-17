@@ -5,6 +5,7 @@ package com.sshacker.tutorialpoint;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.BeanFactory;
 
 public class MainApp {
 
@@ -14,7 +15,7 @@ public class MainApp {
         // HelloWorld obj = (HelloWorld) context.getBean("helloworld");
 
         // using XmlBeanfactory - deprecated
-        XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("Beans.xml"));
+        BeanFactory factory = new XmlBeanFactory(new ClassPathResource("Beans.xml"));
         HelloWorld obj = (HelloWorld) factory.getBean("helloworld");
         obj.getMessage();
     }
