@@ -1,7 +1,8 @@
 package com.sshacker.tutorialpoint;
 
 public class Foo {
-    Foo(TextEditor te, SpellChecker sc) {
-        System.out.println("inside Foo constructor");
+    Foo(int year, String name) {
+        System.out.println("inside Foo constructor by type");
+        System.out.println(year + " " + name);
     }
 }
