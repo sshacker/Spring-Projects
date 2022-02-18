@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:p="http://www.springframework.org/schema/p" 
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-   <bean id="texteditor" class="com.sshacker.tutorialpoint.TextEditor">
-      <constructor-arg ref="spellchecker"></constructor-arg>
-   </bean>
-
-   <bean id="spellchecker" class="com.sshacker.tutorialpoint.SpellChecker"></bean>
-
-   <!--passing constructor-args in order-->
-   <bean id="foo" class="com.sshacker.tutorialpoint.Foo">
-      <constructor-arg index="0" value="2022"></constructor-arg>
-      <constructor-arg index="1" value="Feb"></constructor-arg>
-   </bean>
+   <bean id="john" class="com.sshacker.tutorialpoint.John" p:name="John Smith" p:jane-ref="jane"></bean>
+   <bean id="jane" class="com.sshacker.tutorialpoint.Jane" p:name="Jane Carter" p:hubby="John Smith"></bean>
 
 </beans>
