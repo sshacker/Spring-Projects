@@ -8,4 +8,12 @@
    </bean>
 
    <bean id="spellchecker" class="com.sshacker.tutorialpoint.SpellChecker"></bean>
+
+   <!--passing constructor-args in order-->
+   <bean id="foo" class="com.sshacker.tutorialpoint.Foo">
+      <constructor-arg ref="texteditor"></constructor-arg>
+      <constructor-arg ref="spellchecker"></constructor-arg>
+   </bean>
+
+
 </beans>

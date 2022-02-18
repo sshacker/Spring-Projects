@@ -7,7 +7,6 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("DependencyInjectionBeans.xml");
-		TextEditor obj = (TextEditor) context.getBean("texteditor");
-		obj.textEditorSpellingChecking();
+		Foo obj = (Foo) context.getBean("foo");
 	}
 }
