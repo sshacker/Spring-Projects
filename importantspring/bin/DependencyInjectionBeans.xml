@@ -11,8 +11,8 @@
 
    <!--passing constructor-args in order-->
    <bean id="foo" class="com.sshacker.tutorialpoint.Foo">
-      <constructor-arg type="int" value="2022"></constructor-arg>
-      <constructor-arg type="java.lang.String" value="Feb"></constructor-arg>
+      <constructor-arg index="0" value="2022"></constructor-arg>
+      <constructor-arg index="1" value="Feb"></constructor-arg>
    </bean>
 
 </beans>
