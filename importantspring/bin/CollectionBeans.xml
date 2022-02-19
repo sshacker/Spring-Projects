@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:p="http://www.springframework.org/schema/p" 
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="javacollection" class="com.sshacker.tutorialpoint.JavaCollection">
+       <property name="addressList">
+           <list>
+               <value>India</value>
+               <value>England</value>
+               <value>USA</value>
+               <value>USA</value>
+           </list>
+       </property>
+       <property name="addressSet">
+            <set>
+                <value>India</value>
+                <value>England</value>
+                <value>USA</value>
+                <value>USA</value>
+            </set>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="India"></entry>
+                <entry key="2" value="England"></entry>
+                <entry key="3" value="USA"></entry>
+                <entry key="4" value="USA"></entry>
+            </map>
+        </property>
+        <property name="addressProperties">
+            <props>
+                <prop key="first">First</prop>
+                <prop key="second">Second</prop>
+                <prop key="third">Third</prop>
+                <prop key="fourth">Fourth</prop>
+            </props>
+        </property>
+   </bean>
+
+</beans>
