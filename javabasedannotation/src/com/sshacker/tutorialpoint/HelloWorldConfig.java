@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class HelloWorldConfigFile {
+public class HelloWorldConfig {
 
     @Bean
     public HelloWorld helloworld() {
