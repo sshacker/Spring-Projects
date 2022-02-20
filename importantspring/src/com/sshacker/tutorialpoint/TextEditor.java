@@ -4,24 +4,13 @@ public class TextEditor {
 	private SpellChecker spellChecker;
 	private String name;
 
-	public void setSpellChecker(SpellChecker spellChecker) {
+	TextEditor(SpellChecker spellChecker, String name) {
 		this.spellChecker = spellChecker;
-	}
-
-	public SpellChecker getSpellChecker() {
-		return spellChecker;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		System.out.println(name);
 		this.name = name;
 	}
 
 	public void textEditorSpellingChecking() {
+		System.out.println(name);
 		spellChecker.checkingSpelling();
 	}
 
