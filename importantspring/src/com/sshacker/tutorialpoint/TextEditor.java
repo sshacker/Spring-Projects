@@ -2,6 +2,7 @@ package com.sshacker.tutorialpoint;
 
 public class TextEditor {
 	private SpellChecker spellChecker;
+	private String name;
 
 	public void setSpellChecker(SpellChecker spellChecker) {
 		this.spellChecker = spellChecker;
@@ -9,6 +10,15 @@ public class TextEditor {
 
 	public SpellChecker getSpellChecker() {
 		return spellChecker;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		System.out.println(name);
+		this.name = name;
 	}
 
 	public void textEditorSpellingChecking() {
