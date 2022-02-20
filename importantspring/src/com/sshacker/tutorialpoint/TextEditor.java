@@ -1,16 +1,20 @@
 package com.sshacker.tutorialpoint;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class TextEditor {
 	private SpellChecker spellChecker;
-	private String name;
 
-	TextEditor(SpellChecker spellChecker, String name) {
+	public SpellChecker getSpellChecker() {
+		return spellChecker;
+	}
+
+	@Autowired
+	public void setSpellChecker(SpellChecker spellChecker) {
 		this.spellChecker = spellChecker;
-		this.name = name;
 	}
 
 	public void textEditorSpellingChecking() {
-		System.out.println(name);
 		spellChecker.checkingSpelling();
 	}
 
