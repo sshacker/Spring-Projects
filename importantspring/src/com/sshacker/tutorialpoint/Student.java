@@ -1,8 +1,7 @@
 package com.sshacker.tutorialpoint;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class Student {
+
     private String studentName;
     private int studentAge;
 
@@ -10,7 +9,6 @@ public class Student {
         return studentName;
     }
 
-    @Autowired
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
@@ -19,7 +17,6 @@ public class Student {
         return studentAge;
     }
 
-    @Autowired(required = false)
     public void setStudentAge(int studentAge) {
         this.studentAge = studentAge;
     }
