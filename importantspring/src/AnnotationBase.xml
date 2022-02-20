@@ -7,7 +7,11 @@
 
    <context:annotation-config />
    <!-- bean definitions go here -->
-   <bean id="texteditor" class="com.sshacker.tutorialpoint.TextEditor"></bean>
-   <bean id="spellChecker" class="com.sshacker.tutorialpoint.SpellChecker"></bean>
+
+   <!-- <bean id="texteditor" class="com.sshacker.tutorialpoint.TextEditor"></bean>
+   <bean id="spellChecker" class="com.sshacker.tutorialpoint.SpellChecker"></bean> -->
+   <bean id="student" class="com.sshacker.tutorialpoint.Student">
+      <property name="studentName" value="Zara"></property>
+   </bean>
 
 </beans>

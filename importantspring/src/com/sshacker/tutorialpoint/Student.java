@@ -1,28 +1,27 @@
 package com.sshacker.tutorialpoint;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Student {
-    private String sName;
-    private int sAge;
+    private String studentName;
+    private int studentAge;
 
-    public String getsName() {
-        return sName;
+    public String getStudentName() {
+        return studentName;
     }
 
-    // on setter method only
-    @Required
-    public void setsName(String sName) {
-        this.sName = sName;
+    @Autowired
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public int getsAge() {
-        return sAge;
+    public int getStudentAge() {
+        return studentAge;
     }
 
-    @Required
-    public void setsAge(int sAge) {
-        this.sAge = sAge;
+    @Autowired(required = false)
+    public void setStudentAge(int studentAge) {
+        this.studentAge = studentAge;
     }
 
 }
