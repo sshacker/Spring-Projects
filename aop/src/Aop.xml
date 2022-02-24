@@ -6,23 +6,23 @@
 
     <aop:config>
         <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="selectAll" expression="execution(* com.tutorialspoint.*.*(..))" />
-
+            <aop:pointcut id="selectAll" expression="execution(* com.sshacker.tutorialpoint.aop.*.*(..))" />
+            
             <aop:before pointcut-ref="selectAll" method="beforeAdvice" />
             <aop:after pointcut-ref="selectAll" method="afterAdvice" />
             <aop:after-returning pointcut-ref="selectAll" returning="retVal" method="afterReturningAdvice" />
-
             <aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="afterThrowingAdvice" />
+        
         </aop:aspect>
     </aop:config>
 
     <!-- Definition for student bean -->
-    <bean id="student" class="com.tutorialspoint.Student">
+    <bean id="student" class="com.sshacker.tutorialpoint.aop.Student">
         <property name="name" value="Zara" />
         <property name="age" value="11" />
     </bean>
 
     <!-- Definition for logging aspect -->
-    <bean id="logging" class="com.tutorialspoint.Logging" />
+    <bean id="logging" class="com.sshacker.tutorialpoint.aop.Logging" />
 
 </beans>
