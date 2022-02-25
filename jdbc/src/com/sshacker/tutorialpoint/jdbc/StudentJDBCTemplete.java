@@ -1,57 +1,50 @@
 package com.sshacker.tutorialpoint.jdbc;
 
 import java.util.List;
+import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 public class StudentJDBCTemplete implements StudentDAO {
-
     private DataSource dataSource;
-    private JdbcTemplate jdbcTemplateObject;
+    private SimpleJdbcCall jdbcCall;
 
     @Override
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+        this.jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("getRecord");
     }
 
     @Override
     public void insert(String name, Integer age) {
-        String sql = "insert into Student (name, age) values (? , ?)";
-        jdbcTemplateObject.update(sql, name, age);
-        System.out.println("inserted");
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        String sql = "insert into Student (name, age) values (?, ?)";
+        jdbcTemplate.update(sql, name, age);
+        System.out.println(name + " " + age);
         return;
     }
 
     @Override
     public Student getStudent(Integer id) {
-        String sql = "select * from Student where id = ?";
-        Student student = jdbcTemplateObject.queryForObject(sql, new Object[] { id }, new StudentMapper());
+        SqlParameterSource in = new MapSqlParameterSource().addValue("in_id", id);
+        Map<String, Object> out = jdbcCall.execute(in);
+
+        Student student = new Student();
+        student.setId(id);
+        student.setName((String) out.get("out_name"));
+        student.setAge((Integer) out.get("out_age"));
+        student.getId();
         return student;
     }
 
     @Override
     public List<Student> listStudent() {
-        String sql = "select * from Student";
-        List<Student> students = jdbcTemplateObject.query(sql, new StudentMapper());
-        System.out.println("student list");
+        JdbcTemplate jdbcTemplateObject = new JdbcTemplate(dataSource);
+        String SQL = "select * from Student";
+        List<Student> students = jdbcTemplateObject.query(SQL, new StudentMapper());
         return students;
     }
-
-    @Override
-    public void delete(Integer id) {
-        String sql = "delete from Student where id = ?";
-        jdbcTemplateObject.update(sql, id);
-        System.out.println("deleted");
-        return;
-    }
-
-    @Override
-    public void update(Integer id, Integer age) {
-        String sql = "update Student set age = ? where id = ?";
-        jdbcTemplateObject.update(sql, age, id);
-        System.out.println("updated");
-        return;
-    }
-
 }

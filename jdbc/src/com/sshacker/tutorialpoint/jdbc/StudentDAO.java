@@ -4,7 +4,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public interface StudentDAO {
-    public void setDataSource(DataSource ds);
+    public void setDataSource(DataSource dataSource);
 
     public void insert(String name, Integer age);
 
@@ -12,7 +12,4 @@ public interface StudentDAO {
 
     public List<Student> listStudent();
 
-    public void delete(Integer id);
-
-    public void update(Integer id, Integer age);
 }

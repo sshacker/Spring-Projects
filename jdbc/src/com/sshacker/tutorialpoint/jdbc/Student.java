@@ -1,16 +1,17 @@
 package com.sshacker.tutorialpoint.jdbc;
 
 public class Student {
-    private Integer age;
-    private String name;
-    private Integer id;
 
-    public Integer getAge() {
-        return age;
+    private Integer id;
+    private String name;
+    private Integer age;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -21,12 +22,12 @@ public class Student {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
 }

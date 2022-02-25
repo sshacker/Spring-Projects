@@ -21,18 +21,12 @@ public class MainApp {
 		System.out.println("---------- List All Student ----------------");
 		List<Student> students = studentJDBCTemplete.listStudent();
 		for (Student record : students) {
-			System.out.println(record.getId()+" "+record.getName()+ " " +record.getAge());
+			System.out.println(record.getId() + " " + record.getName() + " " + record.getAge());
 		}
-
-		System.out.println("---------- Upadte ----------------------");
-		studentJDBCTemplete.update(2, 18);
 
 		System.out.println("------------ Get Student ---------------");
 		Student student = studentJDBCTemplete.getStudent(2);
-		System.out.println(student.getId() +" " + student.getName() + " "+ student.getAge());
-		
-		System.out.println("------------ Delete ---------------");
-		studentJDBCTemplete.delete(3);
-		
+		System.out.println(student.getId() + " " + student.getName() + " " + student.getAge());
+
 	}
 }
