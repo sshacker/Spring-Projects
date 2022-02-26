@@ -1,0 +1,60 @@
+package com.sshacker.tutorialpoint.transaction;
+
+import java.util.List;
+import javax.sql.DataSource;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
+
+public class StudentJDBCTemplete implements StudentDAO {
+    private DataSource dataSource;
+    private JdbcTemplate jdbcTemplateObject;
+    private PlatformTransactionManager transactionManager;
+
+    @Override
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+    }
+
+    public void setTransactionManager(PlatformTransactionManager transactionManager) {
+        this.transactionManager = transactionManager;
+    }
+
+    @Override
+    public void insert(String name, Integer age, Integer marks, Integer year) {
+        TransactionDefinition def = new DefaultTransactionDefinition();
+        TransactionStatus status = transactionManager.getTransaction(def);
+        try {
+            String sql1 = "insert into Student (name, age) values(?, ?)";
+            jdbcTemplateObject.update(sql1, name, age);
+
+            // Get the latest student id to be used in Marks table
+            String sql2 = "select max(id) from Student";
+            int sid = jdbcTemplateObject.queryForObject(sql2, Integer.class);
+
+            String sql3 = "insert into Marks (sid, marks, year) " + "values (?, ?, ?)";
+            jdbcTemplateObject.update(sql3, sid, marks, year);
+
+            System.out.println("Successfully created record, commiting");
+            transactionManager.commit(status);
+
+        } catch (DataAccessException ex) {
+            System.out.println("Error in creating record, rolling back");
+            transactionManager.rollback(status);
+            throw ex;
+        }
+    }
+
+    @Override
+    public List<StudentMarks> listStudentMarks() {
+        String sql = "select * from Student, Marks where Student.id = Marks.sid";
+        List<StudentMarks> studentMarks = jdbcTemplateObject.query(sql, new StudentMarksMapper());
+        return studentMarks;
+    }
+
+}
