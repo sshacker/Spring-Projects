@@ -26,5 +26,10 @@ public class MainApp {
          System.out.print(", Year : " + record.getYear());
          System.out.println(", Age : " + record.getAge());
       }
+
+      System.out.println("------to simulate the rollback by exception--------");
+      studentJDBCTemplate.insert("Arjun", 25, 94, 2011);
+      studentJDBCTemplate.insert("Raju", 20, 101, 2022);
+      studentJDBCTemplate.insert("karan", 25, 91, 2011);
    }
 }

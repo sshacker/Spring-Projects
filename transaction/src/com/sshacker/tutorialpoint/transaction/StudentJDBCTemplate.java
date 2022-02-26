@@ -1,9 +1,8 @@
 package com.sshacker.tutorialpoint.transaction;
 
 import java.util.List;
-
 import javax.sql.DataSource;
-
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class StudentJDBCTemplate implements StudentDAO {
@@ -26,9 +25,11 @@ public class StudentJDBCTemplate implements StudentDAO {
             String sql3 = "insert into Marks(sid, marks, year) values(?, ?, ?)";
             jdbcTemplateObject.update(sql3, sid, marks, year);
 
-            // to simulate the exception.
-            // throw new RuntimeException("simulate Error condition");
-        } catch (Exception ex) {
+            if (marks > 100) {
+                // to simulate the commit and rollback by exception.
+                throw new RuntimeException("simulate Error condition mark is greater than 100");
+            }
+        } catch (DataAccessException ex) {
             System.out.println("Error in creating record, rolling back");
             throw ex;
         }
