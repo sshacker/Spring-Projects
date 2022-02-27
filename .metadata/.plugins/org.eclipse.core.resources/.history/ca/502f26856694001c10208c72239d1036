@@ -1,0 +1,9 @@
+package com.sshacker.tutorialpoint.aop;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+
+	}
+
+}

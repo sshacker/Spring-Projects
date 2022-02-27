@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.sshacker.tutorialpoint.HelloWorldConfig&apos; to &apos;HelloWorldConfigFile&apos;&#x0D;&#x0A;- Original project: &apos;javabasedannotation&apos;&#x0D;&#x0A;- Original element: &apos;com.sshacker.tutorialpoint.HelloWorldConfig&apos;&#x0D;&#x0A;- Renamed element: &apos;com.sshacker.tutorialpoint.HelloWorldConfigFile&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;HelloWorldConfig&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.sshacker.tutorialpoint{HelloWorldConfig.java[HelloWorldConfig" matchStrategy="1" name="HelloWorldConfigFile" qualified="false" references="true" similarDeclarations="false" stamp="1645362503391" textual="false" version="1.0"/>
+</session>
